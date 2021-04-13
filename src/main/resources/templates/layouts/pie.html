@@ -1,0 +1,19 @@
+<footer th:fragment="pie" class="px-2 py-2 fixed-bottom bg-dark" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="container">
+                <div class="col">
+                    <p class="lead text-center">
+                        <span class="text-white">&copy; Grupo 5 taller de construcci&oacute;n de software</a></span>
+                    </p>
+                </div>
+            </div>
+    <script type="text/javascript">
+        // 
+        document.addEventListener("DOMContentLoaded", () => {
+            const menu = document.querySelector("#menu"),
+                botonMenu = document.querySelector("#botonMenu");
+            if (menu) {
+                botonMenu.addEventListener("click", () => menu.classList.toggle("show"));
+            }
+        });
+    </script>
+</footer>

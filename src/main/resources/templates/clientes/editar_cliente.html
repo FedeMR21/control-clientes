@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="master">
+<body>
+<main layout:fragment="contenido">
+    <div class="col-12 mt-4">
+        <h2>Editar cliente </h2>
+        <form th:object="${cliente}" th:action="@{/clientes/editar/} + ${cliente.id}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label for="nombre">Nombre del Cliente</label>
+                <input autocomplete="off" autofocus th:field="*{nombre}" id="nombre"
+                       placeholder="Escribe el nombre del cliente" type="text"
+                       class="form-control" th:classappend="${#fields.hasErrors('nombre')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:errors="*{nombre}"></div>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido del cliente</label>
+                <input autocomplete="off" th:field="*{apellido}" id="apellido" placeholder="Escribe el apellido del cliente"
+                       type="text"
+                       class="form-control" th:classappend="${#fields.hasErrors('apellido')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:errors="*{apellido}"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email actual</label>
+                <input autocomplete="off" th:field="*{email}" id="email"
+                       placeholder="Email del cliente" type="text"
+                       class="form-control" th:classappend="${#fields.hasErrors('email')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:errors="*{email}"></div>
+            </div>
+            <div class="form-group">
+                <label for="elefono">Telefono del cliente</label>
+                <input autocomplete="off" th:field="*{telefono}" id="telefono" placeholder="Telefono del cliente"
+                       type="text"
+                       class="form-control" th:classappend="${#fields.hasErrors('telefono')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:errors="*{telefono}"></div>
+            </div>
+            <div class="form-group">
+              <label for="saldo">Saldo</label>
+                <input autocomplete="off" th:field="*{saldo}" id="saldo"
+                       placeholder="saldo del cliente" type="text"
+                       class="form-control" th:classappend="${#fields.hasErrors('saldo')} ? 'is-invalid' : ''">
+                <div class="invalid-feedback" th:errors="*{saldo}"></div>
+
+            </div>
+            <button class="btn btn-success" type="submit">Guardar</button>
+            &nbsp;<a class="btn btn-warning" th:href="@{/clientes/mostrar}">Ver todos</a>
+        </form>
+    </div>
+</main>
+</body>
+</html>
